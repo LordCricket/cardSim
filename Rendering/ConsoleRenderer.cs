@@ -2,25 +2,38 @@ public static class Renderer
 {
     public static void RenderCard(Card card)
     {
-
-        if (card.IsJoker)
-        {
-            return;
-        }
-
         string rankSymbol = GetRankSymbol(card.Rank);
         string suitSymbol = GetSuitSymbol(card.Suit);
+        string centerSymbol = card.IsJoker ? "★" : suitSymbol;
+        string cardName = card.IsJoker ? "Joker" : $"{card.Rank} of {card.Suit}";
+        ConsoleColor cardColor = ConsoleColor.White;
 
+        if (card.Suit == Suit.Hearts || card.Suit == Suit.Diamonds)
+        {
+            cardColor = ConsoleColor.Red;
+        }
+
+        else if (card.IsJoker)
+        {
+            cardColor = ConsoleColor.Yellow;
+        }
+
+
+        Console.ForegroundColor = cardColor;
+        
         Console.WriteLine("     ┌─────────────┐");
         Console.WriteLine($"     │{rankSymbol.PadRight(13)}│");
         Console.WriteLine($"     │{suitSymbol.PadRight(13)}│");
         Console.WriteLine("     │             │");
-        Console.WriteLine($"     │{suitSymbol.PadLeft(7).PadRight(13)}│");
+        Console.WriteLine($"     │{centerSymbol.PadLeft(7).PadRight(13)}│");
         Console.WriteLine("     │             │");
         Console.WriteLine($"     │{suitSymbol.PadLeft(13)}│");
         Console.WriteLine($"     │{rankSymbol.PadLeft(13)}│");
         Console.WriteLine("     └─────────────┘");
-        Console.WriteLine($"     {card.Rank} of {card.Suit}".PadLeft(7).PadRight(13));
+        Console.WriteLine($"     {cardName}".PadLeft(12).PadRight(20));
+
+        Console.ResetColor();
+        return;
     }
 
     private static string GetRankSymbol(Rank? rank)
