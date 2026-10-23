@@ -1,3 +1,18 @@
 ﻿Deck deck = new Deck();
+deck.Shuffle();
 
-Console.WriteLine(deck.Count);
+    Card? drawnCard = deck.Draw();
+
+    if (drawnCard == null)
+    {
+        Console.WriteLine("The deck is empty!");
+        return;
+    }
+    else
+    {
+        if (drawnCard.IsJoker)
+        {
+            Console.WriteLine("Joker");
+        }
+    }
+    Renderer.RenderCard(drawnCard);
