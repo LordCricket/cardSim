@@ -19,16 +19,47 @@ public static class Renderer
         }
 
 
-        Console.ForegroundColor = cardColor;
+        Console.ForegroundColor = ConsoleColor.White;
         
         Console.WriteLine("     ┌─────────────┐");
-        Console.WriteLine($"     │{rankSymbol.PadRight(13)}│");
-        Console.WriteLine($"     │{suitSymbol.PadRight(13)}│");
+        Console.Write($"     │");
+
+        Console.ForegroundColor = cardColor;
+        Console.Write(rankSymbol);
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("".PadRight(13 - rankSymbol.Length) + "│");
+        Console.Write($"     │");
+
+        Console.ForegroundColor = cardColor;
+        Console.Write(suitSymbol);
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("".PadRight(12) + "│");
         Console.WriteLine("     │             │");
-        Console.WriteLine($"     │{centerSymbol.PadLeft(7).PadRight(13)}│");
+
+        Console.Write("     │      ");
+        Console.ForegroundColor = cardColor;
+        Console.Write(centerSymbol);
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("      │");
         Console.WriteLine("     │             │");
-        Console.WriteLine($"     │{suitSymbol.PadLeft(13)}│");
-        Console.WriteLine($"     │{rankSymbol.PadLeft(13)}│");
+
+        Console.Write("     │");
+        Console.Write("".PadLeft(12) + "");
+        Console.ForegroundColor = cardColor;
+        Console.Write(suitSymbol);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("│");
+
+        Console.Write("     │");
+        Console.Write("".PadLeft(13 - rankSymbol.Length) + "");
+        Console.ForegroundColor = cardColor;
+        Console.Write(rankSymbol);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("│");
+
         Console.WriteLine("     └─────────────┘");
         Console.WriteLine($"     {cardName}".PadLeft(12).PadRight(20));
 

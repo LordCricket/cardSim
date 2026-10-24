@@ -8,11 +8,4 @@ deck.Shuffle();
         Console.WriteLine("The deck is empty!");
         return;
     }
-    else
-    {
-        if (drawnCard.IsJoker)
-        {
-            Console.WriteLine("Joker");
-        }
-    }
     Renderer.RenderCard(drawnCard);
