@@ -9,3 +9,5 @@ deck.Shuffle();
         return;
     }
     Renderer.RenderCard(drawnCard);
+
+    //verify fedora
