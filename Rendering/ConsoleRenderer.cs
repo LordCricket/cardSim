@@ -20,7 +20,7 @@ public static class Renderer
 
 
         Console.ForegroundColor = ConsoleColor.White;
-        
+        Console.Clear();
         Console.WriteLine("     ┌─────────────┐");
         Console.Write($"     │");
 
@@ -98,5 +98,17 @@ public static class Renderer
             Suit.Diamonds => "♦",
             _ => "?"
         };
+    }
+
+    public static void RenderMenu(int cardsRemain)
+    {
+        Console.WriteLine("     DECK OF CARDS");
+        Console.WriteLine($"    Cards remaining: {cardsRemain}");
+        Console.WriteLine();
+        Console.WriteLine("[1] Draw");
+        Console.WriteLine("[2] Shuffle");
+        Console.WriteLine("[3] Quit");
+        Console.WriteLine();
+        Console.Write("> ");
     }
 }
